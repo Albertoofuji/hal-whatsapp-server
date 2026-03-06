@@ -38,7 +38,7 @@ def get_messages():
         (status,)
     ).fetchall()
     c.close()
-    return jsonify({messages": [dict(r) for r in rows]})
+    return jsonify([dict(r) for r in rows])
 
 @app.route("/messages/<webhook_id>/done", methods=["POST"])
 def mark_done(webhook_id):
